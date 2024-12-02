@@ -1,10 +1,18 @@
 ﻿using Laboratorio.Contracts;
+using Laboratorio.DataAccess;
 using Laboratorio.Models;
 
 namespace Laboratorio.Repositories
 {
     public class ParticipantRepository : IParticipantRepository
     {
+        private readonly AplicationDbContext _context;
+
+        public ParticipantRepository(AplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public void CreateParticipant(Participant participant)
         {
             throw new NotImplementedException();
@@ -22,12 +30,16 @@ namespace Laboratorio.Repositories
 
         public List<Participant> GetParticipants()
         {
-            throw new NotImplementedException();
+            return _context.Participants.ToList();
         }
 
         public void UpdateParticipant(Participant participant)
         {
             throw new NotImplementedException();
         }
+
+
     }
+
+
 }
