@@ -1,6 +1,7 @@
 ﻿using Laboratorio.Contracts;
 using Laboratorio.DataAccess;
 using Laboratorio.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Laboratorio.Repositories
 {
@@ -25,7 +26,7 @@ namespace Laboratorio.Repositories
 
         public Participant GetParticipant(int id)
         {
-            throw new NotImplementedException();
+            return _context.Participants.FirstOrDefault(p => p.Id == id);
         }
 
         public List<Participant> GetParticipants()

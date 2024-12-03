@@ -21,5 +21,16 @@ namespace Laboratorio.Controllers
             var participants = _participantRepository.GetParticipants();
             return Ok(participants);
         }
+        [HttpGet]
+        [Route("{id}")]
+        public ActionResult<Participant> Get(int id)
+        {
+            var participant = _participantRepository.GetParticipant(id);
+            if (participant == null)
+            {
+                return NotFound();
+            }
+            return Ok(participant);
+        }
     }
 }
