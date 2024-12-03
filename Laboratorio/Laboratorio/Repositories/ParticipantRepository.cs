@@ -16,12 +16,18 @@ namespace Laboratorio.Repositories
 
         public void CreateParticipant(Participant participant)
         {
-            throw new NotImplementedException();
+            _context.Participants.Add(participant);
+            _context.SaveChanges();
         }
 
         public void DeleteParticipant(int id)
         {
-            throw new NotImplementedException();
+            var participant = _context.Participants.FirstOrDefault(p => p.Id == id);
+            if (participant != null)
+            {
+                _context.Participants.Remove(participant);
+                _context.SaveChanges();
+            }
         }
 
         public Participant GetParticipant(int id)
@@ -36,7 +42,8 @@ namespace Laboratorio.Repositories
 
         public void UpdateParticipant(Participant participant)
         {
-            throw new NotImplementedException();
+            _context.Participants.Update(participant);
+            _context.SaveChanges();
         }
 
 
