@@ -6,15 +6,14 @@
         public required string Name { get; set; }
         public required string LastName { get; set; }
         public required string Email { get; set; }
-        public required ICollection<Event> Events { get; set; }
+        public  ICollection<Event>? Events { get; set; }
 
-        public Participant(int id, string name, string lastName, string email, ICollection<Event> events)
+        public Participant(int id, string name, string lastName, string email)
         {
             Id = id;
             Name = name;
             LastName = lastName;
-            Email = email;
-            Events = events;
+            Email = email;            
             EnsureStateIsValid();
         }
         public void UpdateName(string name)
